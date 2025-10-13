@@ -5,7 +5,7 @@ import axios from "axios";
 
 export default function Users() {
   const [users, setUsers] = useState([]);
-  const [runUseEffect, setRun] = useState(0);
+  
 
   async function deleteUser(id) {
     try {
@@ -13,7 +13,7 @@ export default function Users() {
         `http://127.0.0.1:8000/api/user/delete/${id}` 
       );
       
-      if (res.status === 200) setRun((prev) => prev + 1);
+      if (res.status === 200);
     } catch (error) {
       console.error("Error deleting user:", error);
     }
@@ -34,17 +34,7 @@ export default function Users() {
         }}
       >
 
-        <Link to={`${user.id}`}>
-          <i
-            style={{ color: "orange", cursor: "pointer" }}
-            className="fa-duotone fa-solid fa-pen-to-square"
-          ></i>
-        </Link>
-        <i
-          style={{ color: "red", cursor: "pointer"}}
-          className="fa-solid fa-xmark"
-          onClick={() => deleteUser(user.id)}
-        ></i>
+  
       </td>
     </tr>
   ));
@@ -61,7 +51,7 @@ export default function Users() {
       })
       .then((data) => setUsers(data))
       .catch((error) => console.error("Error fetching data:", error));
-  }, [runUseEffect]);
+  }, []);
 
   return (
     <div>

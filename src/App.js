@@ -15,8 +15,7 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />} />
         <Route path="/Dashboard" element={<Dashboard />}>
-          <Route exact path="users" element={<Users />} />
-          <Route path="users/:id" element={<UpdateUser />} />
+          <Route  path="users" element={<Users />} />
         </Route>
       </Routes>
     </div>
