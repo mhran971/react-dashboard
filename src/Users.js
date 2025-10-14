@@ -6,7 +6,19 @@ import axios from "axios";
 export default function Users() {
   const [users, setUsers] = useState([]);
   
+ useEffect(() => {
+    fetch("http://127.0.0.1:8000/api/user/show")
+      .then((res) => {
+        if (!res.ok) {
+          console.log("hello");
+          throw new Error("Network response was not ok");
+        }
 
+        return res.json();
+      })
+      .then((data) => setUsers(data))
+      .catch((error) => console.error("Error fetching data:", error));
+  }, []);
   async function deleteUser(id) {
     try {
       const res = await axios.delete(
@@ -14,7 +26,9 @@ export default function Users() {
       );
       
       if (res.status === 200);
-      {setUsers(users.filter(user=>user.id!==id))}
+      // { console.log("User deleted successfully");
+        setUsers(users.filter(user=>user.id!==id))
+      // }
     } catch (error) {
       console.error("Error deleting user:", error);
     }
@@ -31,31 +45,19 @@ export default function Users() {
           justifyContent: "space-around",
           paddingRight: "50px",
           alignItems: "center"
-            
+
         }}
       > 
         
-          <i class="fa-solid fa-trash"  style={{ cursor: "pointer", color:"red"}} onClick={() => deleteUser(user.id)} ></i>
-          {/* <i class="fa-solid fa-pen-to-square" style={{ cursor: "pointer", color:"blue"}} onClick={() => deleteUser(user.id)} ></i> */}
+          <i className="fa-solid fa-trash"  style={{ cursor: "pointer", color:"red"}} onClick={() => deleteUser(user.id)} ></i>
+          <i className="fa-solid fa-pen-to-square" style={{ cursor: "pointer", color:"blue"}} onClick={() => deleteUser(user.id)} ></i>
 
    
       </td>
     </tr>
   ));
 
-  useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/user/show")
-      .then((res) => {
-        if (!res.ok) {
-          console.log("hello");
-          throw new Error("Network response was not ok");
-        }
-
-        return res.json();
-      })
-      .then((data) => setUsers(data))
-      .catch((error) => console.error("Error fetching data:", error));
-  }, []);
+ 
 
   return (
     <div>
