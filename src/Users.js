@@ -14,6 +14,7 @@ export default function Users() {
       );
       
       if (res.status === 200);
+      {setUsers(users.filter(user=>user.id!==id))}
     } catch (error) {
       console.error("Error deleting user:", error);
     }
@@ -32,9 +33,12 @@ export default function Users() {
           alignItems: "center"
             
         }}
-      >
+      > 
+        
+          <i class="fa-solid fa-trash"  style={{ cursor: "pointer", color:"red"}} onClick={() => deleteUser(user.id)} ></i>
+          {/* <i class="fa-solid fa-pen-to-square" style={{ cursor: "pointer", color:"blue"}} onClick={() => deleteUser(user.id)} ></i> */}
 
-  
+   
       </td>
     </tr>
   ));

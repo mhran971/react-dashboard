@@ -102,7 +102,7 @@ tbody tr:last-of-type {
 }
 
 tbody tr:hover {
-  background-color: #f1f1f1;
+  background-color: #00987a50;
   /* cursor: pointer; */
 }
 
