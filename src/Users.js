@@ -50,7 +50,7 @@ export default function Users() {
       > 
         
           <i className="fa-solid fa-trash"  style={{ cursor: "pointer", color:"red"}} onClick={() => deleteUser(user.id)} ></i>
-          <i className="fa-solid fa-pen-to-square" style={{ cursor: "pointer", color:"blue"}} onClick={() => deleteUser(user.id)} ></i>
+          <Link to={`${user.id}`} className="fa-solid fa-pen-to-square" style={{ cursor: "pointer", color:"blue"}}  ></Link>
 
    
       </td>

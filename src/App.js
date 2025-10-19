@@ -5,9 +5,9 @@ import Login from "./Login";
 import Home from "./Home";
 import Users from "./Users";
 import Dashboard from "./Components/Dashboard";
-import UpdateUser from "./Components/UpdateUser";
+import UpdateUser from "./UpdateUser";
 
-export default function App() {
+export default function App() { 
   return (
     <div>
       <Routes>
@@ -15,7 +15,8 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Home />} />
         <Route path="/Dashboard" element={<Dashboard />}>
-          <Route  path="users" element={<Users />} />
+          <Route excat path="users" element={<Users />} />
+          <Route path="users/:id" element={<UpdateUser />} />
         </Route>
       </Routes>
     </div>
