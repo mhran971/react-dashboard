@@ -23,7 +23,7 @@ export default function SignUp() {
         <Header />
       </div>
       <UserForm
-        title="Sign Up"
+        // title="Sign Up"
         button="Register"
         endPoint="register"
         navigateTo="/dashboard/users"
