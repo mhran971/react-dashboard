@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Header from "./Components/Header";
-import UserForm from "./Components/UserForm";
+import UserForm from "./Components/Forms/UserForm";
 
 export default function UpdateUser() {
   const [name, setName] = useState("");
