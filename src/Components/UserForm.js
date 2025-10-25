@@ -11,13 +11,35 @@ export default function UserForm(props) {
   const [accept, setAccept] = React.useState(false);
   const [emailError, setEmailError] = React.useState("");
 
- 
-  useEffect(()=>{
+  const formUpdateUserStyle = {
+    display: "flex",
+    flexDirection: "column",
+    width: "100%",
+    // padding:" 2rem",
+    background:" white",
+    borderRadius: " 8px",
+    gap: "1rem",
+    fontFamily: "Cairo",
+    flexWrap: " wrap",
+    marginTop: "0px",
+    boxShadow: "none",
+  };
+  const wrapformUpdateUserStyle = {
+    display: "flex",
+    justifyContent: "flex-start",
+    alignItems: "flex-start",
+    height: "auto",
+    backgroundColor: "#ffffffff",
+    flexWrap: "wrap",
+    marginTop: "0px",
+    boxShadow: "none",
+  };
+
+  useEffect(() => {
     setName(props.name || "");
     setEmail(props.email || "");
-   },[props.name, props.email]);
+  }, [props.name, props.email]);
 
-  
   async function Submit(e) {
     let flag = true;
     e.preventDefault();
@@ -27,14 +49,17 @@ export default function UserForm(props) {
     else flag = true;
     try {
       if (flag) {
-        let res = await axios.post(`http://127.0.0.1:8000/api/${props.endPoint}`, {
-          name: name,
-          email: email,
-          password: password,
-          password_confirmation: passwordR,
-        });
+        let res = await axios.post(
+          `http://127.0.0.1:8000/api/${props.endPoint}`,
+          {
+            name: name,
+            email: email,
+            password: password,
+            password_confirmation: passwordR,
+          }
+        );
         if (res.status === 200) {
-         props.hasLocalStorage && window.localStorage.setItem("email", email);
+          props.hasLocalStorage && window.localStorage.setItem("email", email);
           window.location.pathname = `${props.navigateTo}`;
         }
       }
@@ -44,10 +69,17 @@ export default function UserForm(props) {
   }
 
   return (
-    <div>
-        <h1>{props.title}</h1>
-      <div className="father">
-        <form className="form-father" onSubmit={Submit}>
+    <div >
+      <h1>{props.title}</h1>
+      <div
+        style={props.iswrapformUpdateUserStyle ? wrapformUpdateUserStyle : null}
+        className="father"
+      >
+        <form
+          style={props.isformUpdateUserStyle ? formUpdateUserStyle : null}
+          className="form-father"
+          onSubmit={Submit}
+        >
           <label htmlFor="name">Name: </label>
           <input
             type="text"

@@ -28,6 +28,8 @@ export default function SignUp() {
         endPoint="register"
         navigateTo="/dashboard/users"
         hasLocalStorage={true}
+        isformUpdateUserStyle={false}
+        iswrapformUpdateUserStyle={false}
       />
     </div>
   );

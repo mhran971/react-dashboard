@@ -40,5 +40,7 @@ export default function UpdateUser() {
       email={email}
       endPoint={`user/update/${userId}`}
       hasLocalStorage={false}
+      isformUpdateUserStyle={true}
+      iswrapformUpdateUserStyle={true}
     />);
 }
