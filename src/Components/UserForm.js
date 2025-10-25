@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 export default function UserForm(props) {
   const [name, setName] = React.useState(props.name || "");
@@ -16,7 +16,7 @@ export default function UserForm(props) {
     flexDirection: "column",
     width: "100%",
     // padding:" 2rem",
-    background:" white",
+    background: " white",
     borderRadius: " 8px",
     gap: "1rem",
     fontFamily: "Cairo",
@@ -69,12 +69,15 @@ export default function UserForm(props) {
   }
 
   return (
-    <div >
-      <h1>{props.title}</h1>
+    <div>
+     <h1>{props.title}</h1>
+
+
       <div
         style={props.iswrapformUpdateUserStyle ? wrapformUpdateUserStyle : null}
         className="father"
       >
+
         <form
           style={props.isformUpdateUserStyle ? formUpdateUserStyle : null}
           className="form-father"

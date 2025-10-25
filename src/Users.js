@@ -5,15 +5,15 @@ import axios from "axios";
 
 export default function Users() {
   const [users, setUsers] = useState([]);
-  
- useEffect(() => {
+
+  useEffect(() => {
     fetch("http://127.0.0.1:8000/api/user/show")
       .then((res) => {
         if (!res.ok) {
           console.log("hello");
           throw new Error("Network response was not ok");
         }
-        
+
         return res.json();
       })
       .then((data) => setUsers(data))
@@ -22,12 +22,12 @@ export default function Users() {
   async function deleteUser(id) {
     try {
       const res = await axios.delete(
-        `http://127.0.0.1:8000/api/user/delete/${id}` 
+        `http://127.0.0.1:8000/api/user/delete/${id}`
       );
-      
+
       if (res.status === 200);
       // { console.log("User deleted successfully");
-        setUsers(users.filter(user=>user.id!==id))
+      setUsers(users.filter((user) => user.id !== id));
       // }
     } catch (error) {
       console.error("Error deleting user:", error);
@@ -39,29 +39,56 @@ export default function Users() {
       <td>{user.id}</td>
       <td>{user.name}</td>
       <td>{user.email}</td>
-      <td 
+      <td
         style={{
           display: "flex",
           justifyContent: "space-around",
           paddingRight: "50px",
-          alignItems: "center"
-
+          alignItems: "center",
         }}
-      > 
-        
-          <i className="fa-solid fa-trash"  style={{ cursor: "pointer", color:"red"}} onClick={() => deleteUser(user.id)} ></i>
-          <Link to={`${user.id}`} className="fa-solid fa-pen-to-square" style={{ cursor: "pointer", color:"blue"}}  ></Link>
-
-   
+      >
+        <i
+          className="fa-solid fa-trash"
+          style={{ cursor: "pointer", color: "red" }}
+          onClick={() => deleteUser(user.id)}
+        ></i>
+        <Link
+          to={`${user.id}`}
+          className="fa-solid fa-pen-to-square"
+          style={{ cursor: "pointer", color: "blue" }}
+        ></Link>
       </td>
     </tr>
   ));
 
- 
-
   return (
     <div>
-      <h1>Users</h1>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          flexDirection: "row",
+          alignItems: "center",
+          paddingRight: "30px",
+        }}
+      >
+        <h1>Users</h1>
+
+        <Link   to="createUser">
+          <h5 className="sb-btn"
+        
+          style={{
+            marginLeft: "900px",
+            height: "40px",
+            width: "120px",
+            textAlign: "center",
+            padding: "auto",
+            justifyContent: "center",
+            
+          }}
+          >Create User</h5>
+        </Link>
+      </div>
       <table>
         <thead>
           <tr>

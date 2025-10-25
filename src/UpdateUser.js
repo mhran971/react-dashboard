@@ -5,19 +5,20 @@ import Header from "./Components/Header";
 import UserForm from "./Components/UserForm";
 
 export default function UpdateUser() {
-   const [name, setName] = useState("");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordR, setPasswordR] = useState("");
   const [accept, setAccept] = useState(false);
- 
 
   const { id: userId } = useParams();
 
   useEffect(() => {
     async function fetchUserById() {
       try {
-        const res = await fetch(`http://127.0.0.1:8000/api/user/showbyid/${userId}`);
+        const res = await fetch(
+          `http://127.0.0.1:8000/api/user/showbyid/${userId}`
+        );
         const data = await res.json();
         setName(data[0].name || "");
         setEmail(data[0].email || "");
@@ -29,12 +30,11 @@ export default function UpdateUser() {
     fetchUserById();
   }, [userId]);
 
-  
- 
-  return( <UserForm 
+  return (
+    <UserForm
+      key="update"
       button="Update"
       title="Update User"
-       
       navigateTo="/dashboard/users"
       name={name}
       email={email}
@@ -42,5 +42,6 @@ export default function UpdateUser() {
       hasLocalStorage={false}
       isformUpdateUserStyle={true}
       iswrapformUpdateUserStyle={true}
-    />);
+    />
+  );
 }
