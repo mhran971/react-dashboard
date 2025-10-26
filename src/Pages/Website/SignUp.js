@@ -1,8 +1,8 @@
 import axios from "axios";
-import "./SignUp.css";
+import "../../SignUp.css";
 import React from "react";
-import Header from "./Components/Header";
-import UserForm from "./Components/Forms/UserForm";
+import Header from "../../Components/Header";
+import UserForm from "../../Components/Forms/UserForm";
 
 export default function SignUp() {
   const [name, setname] = React.useState("");

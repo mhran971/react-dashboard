@@ -1,5 +1,7 @@
-import "./SignUp.css";
-import UserForm from "./Components/Forms/UserForm";
+import "../../../SignUp.css";
+
+import UserForm from "../../../Components/Forms/UserForm";
+
 
 export default function CreateUser() {
   return (

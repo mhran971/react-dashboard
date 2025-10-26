@@ -1,7 +1,7 @@
 import axios from "axios";
-import "./SignUp.css";
+import "../../SignUp.css";
 import React from "react";
-import Header from "./Components/Header";
+import Header from "../../Components/Header";
 
 export default function Login() {
   const [email, setemail] = React.useState("");

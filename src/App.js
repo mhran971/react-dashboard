@@ -1,14 +1,15 @@
 import { Route, Routes } from "react-router-dom";
-import SignUp from "./SignUp";
+import SignUp from "./Pages/Website/SignUp.js";
 import "./Components/Dashboard.css";
-import Login from "./Login";
-import Home from "./Home";
-import Users from "./Users";
-import Dashboard from "./Components/Dashboard";
-import UpdateUser from "./UpdateUser";
-import CreateUser from "./CreateUser";
 
-export default function App() { 
+import Login from "./Pages/Website/Login.js";
+import Home from "./Pages/Website/Home.js";
+import Users from "./Pages/Dashboard/Users/Users";
+import Dashboard from "./Pages/Dashboard/Dashboard.js";
+import UpdateUser from "./Pages/Dashboard/Users/UpdateUser";
+import CreateUser from "./Pages/Dashboard/Users/CreateUser";
+
+export default function App() {
   return (
     <div>
       <Routes>

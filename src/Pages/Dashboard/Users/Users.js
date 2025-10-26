@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import "./all.min.css";
+import "../../../all.min.css";
+
 import axios from "axios";
 
 export default function Users() {
